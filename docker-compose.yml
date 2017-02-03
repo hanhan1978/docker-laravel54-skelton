@@ -1,0 +1,30 @@
+version: '2'
+services:
+    laravel:
+        build: .
+        #ports:
+        #  - "80:80"
+        #links:
+        #  - mysql:mysql.local
+        #volumes:
+        #  - ./laravel:/var/www/laravel
+        #volumes:
+        #    - ./www:/usr/share/nginx/html
+    nginx:
+        image: nginx:1.11-alpine
+        ports:
+            - "80:80"
+        links:
+            - laravel:fpm.local
+        volumes:
+            - ./var/conf/default.conf:/etc/nginx/conf.d/default.conf
+
+        
+#    mysql:
+#        image: mysql:5.7
+#        environment:
+#          - MYSQL_ROOT_PASSWORD=password
+#        ports:
+#          - "3306:3306"
+#        volumes:
+#          - ./var/mysql:/var/lib/mysql
