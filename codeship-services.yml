@@ -1,7 +1,9 @@
 version: '2'
 services:
     laravel:
-        build: .
+        build:
+            image: hanhan1978/docker-laravel54-skelton
+            dockerfile_path: Dockerfile
         links:
           - mysql:mysql.local
         volumes:

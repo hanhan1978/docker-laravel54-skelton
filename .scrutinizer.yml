@@ -1,5 +1,5 @@
 filter:
-    excluded_paths: [laravel/tests/*]
+    excluded_paths: [laravel/tests/*, laravel/public/js]
 
 checks:
     php:
