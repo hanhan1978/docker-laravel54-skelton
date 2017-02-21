@@ -28,3 +28,4 @@ test_runner:
     build: .
     links:
       - selenium:selenium.local
+    cached: true
