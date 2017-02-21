@@ -4,16 +4,11 @@ services:
         build:
             image: hanhan1978/docker-laravel54-skelton
             dockerfile_path: Dockerfile
-        links:
-          - mysql:mysql.local
-        volumes:
-          - ./laravel:/var/www/laravel
+        cached: true
     nginx:
         image: nginx:1.11-alpine
         ports:
             - "80:80"
-        links:
-            - laravel:fpm.local
         volumes:
             - ./var/conf/default.conf:/etc/nginx/conf.d/default.conf
     mysql:
