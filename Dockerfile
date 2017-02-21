@@ -13,7 +13,6 @@ RUN apk upgrade --update \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  zip
 
-
 # install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
@@ -26,25 +25,15 @@ RUN composer install --no-scripts --no-autoloader -d /tmp
 
 
 COPY laravel /var/www/laravel
-#COPY run.sh /usr/local/bin/run.sh
-#RUN chmod +x /usr/local/bin/run.sh
-#
-#COPY crontab /etc/cron.d/crontab
-#
-#
-WORKDIR /var/www/laravel
-## composer install
 
-RUN mv /tmp/vendor ./ \
+WORKDIR /var/www/laravel
+
+RUN mv -n /tmp/vendor ./ \
   && composer dump-autoload
-#RUN composer install
-#
+
 RUN chown www-data:www-data storage/logs \
     && chown -R www-data:www-data storage/framework \
     && cp .env.example .env \
     && php artisan key:generate \
     && mkdir -p  /usr/share/nginx \
     && ln -s /var/www/laravel/public /usr/share/nginx/html
-#
-#
-#CMD /usr/local/bin/run.sh
