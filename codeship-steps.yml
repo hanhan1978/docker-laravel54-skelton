@@ -1,9 +1,6 @@
 - type: serial
   name: deployment
   steps:
-    - name: ambassador
-      service: ambassador 
-      command: echo up 
     - name: selenium 
       service: selenium 
       command: echo up 
