@@ -1,3 +1,4 @@
 /.idea
 /var/mysql
 /codeship.aes
+/var/run
