@@ -8,7 +8,7 @@
       service: nginx 
       command: echo up 
     - name: dusk
-      service: laravel
+      service: test_runner
       command: php artisan dusk
     - service: laravel
       type: push

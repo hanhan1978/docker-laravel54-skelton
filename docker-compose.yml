@@ -1,17 +1,10 @@
-ambassador:
-    image: cpuguy83/docker-grand-ambassador
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    command: "-name nginx"
 laravel:
     build: .
     volumes:
       - ./laravel:/var/www/laravel
-    links:
-      - selenium:selenium.local
+
 nginx:
     image: nginx:1.11-alpine
-    container_name: nginx
     ports:
         - "80:80"
     volumes:
@@ -30,4 +23,8 @@ mysql:
 selenium:
     image: selenium/standalone-chrome:latest
     links:
-      - "ambassador:nginx.local"
+      - nginx:nginx.local
+test_runner:
+    build: .
+    links:
+      - selenium:selenium.local
