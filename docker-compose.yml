@@ -1,17 +1,22 @@
-laravel:
+version: '2'
+services:
+  laravel:
     build: .
     volumes:
       - ./laravel:/var/www/laravel
-
-nginx:
+    networks:
+      - app
+  nginx:
     image: nginx:1.11-alpine
     ports:
         - "80:80"
     volumes:
         - ./var/conf/default.conf:/etc/nginx/conf.d/default.conf
-    links:
-      - laravel:laravel
-mysql:
+    networks:
+      app:
+        aliases:
+          - nginx.local
+  mysql:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=password
@@ -20,11 +25,13 @@ mysql:
       - MYSQL_PASSWORD=developer
     volumes:
       - ./var/mysql:/var/lib/mysql
-selenium:
+    networks:
+      - app
+  selenium:
     image: selenium/standalone-chrome:latest
-    links:
-      - nginx:nginx.local
-test_runner:
-    build: .
-    links:
-      - selenium:selenium.local
+    networks:
+      app:
+        aliases:
+          - selenium.local
+networks:
+  app:
