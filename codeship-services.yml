@@ -25,3 +25,6 @@ services:
           - MYSQL_PASSWORD=developer
         volumes:
           - ./var/mysql:/var/lib/mysql
+    selenium:
+        image: selenium/standalone-chrome:latest
+

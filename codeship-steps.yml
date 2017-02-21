@@ -1,3 +1,6 @@
+- name: dusk
+  service: laravel
+  command: php artisan dusk
 - service: laravel
   type: push
   image_name: hanhan1978/docker-laravel54-skelton
