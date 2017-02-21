@@ -1,8 +1,20 @@
-- name: dusk
-  service: laravel
-  command: php artisan dusk
-- service: laravel
-  type: push
-  image_name: hanhan1978/docker-laravel54-skelton
-  registry: https://index.docker.io/v1/
-  encrypted_dockercfg_path: dockercfg.encrypted
+- type: serial
+  name: deployment
+  steps:
+    - name: ambassador
+      service: ambassador 
+      command: echo up 
+    - name: selenium 
+      service: selenium 
+      command: echo up 
+    - name: nginx 
+      service: nginx 
+      command: echo up 
+    - name: dusk
+      service: laravel
+      command: php artisan dusk
+    - service: laravel
+      type: push
+      image_name: hanhan1978/docker-laravel54-skelton
+      registry: https://index.docker.io/v1/
+      encrypted_dockercfg_path: dockercfg.encrypted
