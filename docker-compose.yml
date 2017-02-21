@@ -4,12 +4,18 @@ services:
         build: .
         volumes:
           - ./laravel:/var/www/laravel
+        networks:
+          - local 
     nginx:
         image: nginx:1.11-alpine
         ports:
             - "80:80"
         volumes:
             - ./var/conf/default.conf:/etc/nginx/conf.d/default.conf
+        networks:
+          local:
+            aliases:
+              - nginx.local
     mysql:
         image: mysql:5.7
         environment:
@@ -19,5 +25,13 @@ services:
           - MYSQL_PASSWORD=developer
         volumes:
           - ./var/mysql:/var/lib/mysql
+        networks:
+          - local 
     selenium:
         image: selenium/standalone-chrome:latest
+        networks:
+          local:
+            aliases:
+              - selenium.local
+networks:
+    local:
