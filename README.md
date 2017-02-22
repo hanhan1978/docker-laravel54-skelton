@@ -1,3 +1,4 @@
+![codeship](https://app.codeship.com/projects/5ee641e0-ce5e-0134-642a-1a032757f589/status?branch=master)
 # Set up
 
 ```
