@@ -6,6 +6,8 @@ services:
 
 before_install:
     - docker version
+    - docker-compose version
+    - docker-compose -f docker-compose.yml up -d
 
 script:
-    - docker version
+    - docker-compose -f docker-compose.yml exec laravel php artisan dusk 

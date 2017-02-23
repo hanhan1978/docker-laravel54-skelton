@@ -2,8 +2,6 @@ version: '2'
 services:
   laravel:
     build: .
-    volumes:
-      - ./laravel:/var/www/laravel
     networks:
       - app
   nginx:
