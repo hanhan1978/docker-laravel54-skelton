@@ -1,11 +1,11 @@
 - type: serial
   name: deployment
   steps:
-    - name: selenium 
-      service: selenium 
-      command: echo up 
     - name: nginx 
       service: nginx 
+      command: echo up 
+    - name: selenium 
+      service: selenium 
       command: echo up 
     - name: dusk
       service: test_runner
