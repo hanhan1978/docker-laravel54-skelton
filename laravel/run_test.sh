@@ -6,9 +6,9 @@ set -eu
 func() {
   url=selenium.local:4444
   if curl --output /dev/null --silent --head --fail "$url"; then
-    echo 1
-  else
     echo 0
+  else
+    echo 1
   fi
 }
 
@@ -16,9 +16,9 @@ func() {
 # try 10 times to check selenium.local is up.
 for i in `seq 1 10 `
 do
-  if [ `func` -eq 1 ]; then
+  if [ `func` -eq 0 ]; then
     php artisan dusk
-    exit 1
+    exit 0
   else
     echo 'selenium is down... wait for boot'
     sleep 10
@@ -26,5 +26,5 @@ do
 done
 
 echo '[timeout] test runner. could not execute dusk test.'
-exit 0
+exit 1
 
