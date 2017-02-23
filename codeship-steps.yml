@@ -9,7 +9,7 @@
       command: echo up 
     - name: dusk
       service: test_runner
-      command: php artisan dusk
+      command: run_test.sh
     - service: laravel
       type: push
       image_name: hanhan1978/docker-laravel54-skelton
