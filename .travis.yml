@@ -10,4 +10,4 @@ before_install:
     - docker-compose -f docker-compose.yml up -d
 
 script:
-    - docker-compose -f docker-compose.yml exec laravel php artisan dusk 
+    - docker-compose -f docker-compose.yml run laravel php artisan dusk
