@@ -6,11 +6,12 @@ machine:
 
 dependencies:
   pre:
-    - docker version
-    - docker-compose version
+    - ps aux | grep docker
+    - sudo docker version
+    - sudo docker-compose version
   override:
-    - docker-compose -f docker-compose.yml up -d
+    - sudo docker-compose -f docker-compose.yml up -d
 
 test:
   override:
-    - docker-compose -f docker-compose.yml run laravel php artisan dusk
+    - sudo docker-compose -f docker-compose.yml run laravel php artisan dusk
