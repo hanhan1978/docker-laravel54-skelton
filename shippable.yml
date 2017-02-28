@@ -1,0 +1,9 @@
+language: python # I dont use any language, python is choosen randomly
+
+build:
+  ci:
+    - docker version
+    - pip install -U docker-compose
+    - docker-compose version
+    - docker-compose -f docker-compose.yml up -d && sleep 10
+    - docker-compose -f docker-compose.yml run laravel php artisan dusk
