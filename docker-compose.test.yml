@@ -36,5 +36,7 @@ services:
   sut:
     build: .
     command: ./run_test.sh
+    networks:
+      - app
 networks:
   app:
