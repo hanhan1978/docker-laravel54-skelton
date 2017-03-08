@@ -2,6 +2,8 @@
 
 set -eu
 
+ping selenium.local -c 1
+
 # check selenium.local is up & availble
 func() {
   url=selenium.local:4444
