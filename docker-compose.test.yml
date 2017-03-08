@@ -35,6 +35,6 @@ services:
           - selenium.local
   sut:
     build: .
-    command: run_test.sh
+    command: ./run_test.sh
 networks:
   app:
