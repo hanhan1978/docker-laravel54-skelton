@@ -28,5 +28,6 @@ services:
   sut:
     build: .
     command: ./run_test.sh
+    tty: true
     links:
       - selenium:selenium.local
