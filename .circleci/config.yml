@@ -7,6 +7,6 @@ jobs:
     steps:
       - setup_docker_engine
       - run: |
-        docker-compose -f docker-compose.yml up -d
+          docker-compose -f docker-compose.yml up -d
       - run: |
-        docker-compose -f docker-compose.yml run laravel php artisan dusk
+          docker-compose -f docker-compose.yml run laravel php artisan dusk
