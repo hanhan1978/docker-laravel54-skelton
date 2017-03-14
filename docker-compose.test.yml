@@ -2,16 +2,8 @@ version: '2'
 services:
   laravel:
     build: .
-  nginx:
-    image: nginx:1.11-alpine
     ports:
         - "80:80"
-    volumes:
-        - ./var/conf/default.conf:/etc/nginx/conf.d/default.conf
-    volumes_from:
-        - laravel
-    links:
-      - laravel:laravel
   mysql:
     image: mysql:5.7
     environment:
@@ -24,7 +16,7 @@ services:
   selenium:
     image: selenium/standalone-chrome:latest
     links:
-      - nginx:nginx.local
+      - laravel:laravel.local
   sut:
     build: .
     command: ./run_test.sh

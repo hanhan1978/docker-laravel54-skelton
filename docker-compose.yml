@@ -2,20 +2,12 @@ version: '2'
 services:
   laravel:
     build: .
-    networks:
-      - app
-  nginx:
-    image: nginx:1.11-alpine
     ports:
         - "80:80"
-    volumes:
-        - ./var/conf/default.conf:/etc/nginx/conf.d/default.conf
-    volumes_from:
-        - laravel
     networks:
       app:
         aliases:
-          - nginx.local
+          - laravel.local
   mysql:
     image: mysql:5.7
     environment:

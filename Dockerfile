@@ -1,5 +1,5 @@
 
-FROM php:7.1.1-fpm-alpine 
+FROM php:7.1.2-fpm-alpine
 
 MAINTAINER hanhan1978 <ryo.tomidokoro@gmail.com>
 
@@ -9,9 +9,11 @@ RUN apk upgrade --update \
        libmcrypt-dev \
        git \
        zlib-dev \
+       nginx \
     && docker-php-ext-install  mcrypt \
     && docker-php-ext-install  pdo_mysql \
-    && docker-php-ext-install  zip
+    && docker-php-ext-install  zip \
+    && mkdir /run/nginx
 
 # install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -23,6 +25,7 @@ COPY laravel/composer.lock /tmp/composer.lock
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN composer install --no-scripts --no-autoloader -d /tmp
 
+COPY ./var/conf/nginx.conf /etc/nginx/nginx.conf
 
 COPY laravel /var/www/laravel
 
@@ -37,3 +40,7 @@ RUN chown www-data:www-data storage/logs \
     && php artisan key:generate \
     && mkdir -p  /usr/share/nginx \
     && ln -s /var/www/laravel/public /usr/share/nginx/html
+
+COPY ./run.sh /usr/local/bin/run.sh
+
+CMD ["run.sh"]
