@@ -20,7 +20,7 @@ services:
     networks:
       - app
   selenium:
-    image: selenium/standalone-chrome:latest
+    image: hanhan1978/selenium-standalone-chrome-ja:latest
     networks:
       app:
         aliases:
