@@ -18,6 +18,7 @@ for i in `seq 1 10 `
 do
   if [ `func` -eq 0 ]; then
     php artisan dusk
+    ./vendor/bin/phpunit
     exit 0
   else
     echo 'selenium is down... wait for boot'
