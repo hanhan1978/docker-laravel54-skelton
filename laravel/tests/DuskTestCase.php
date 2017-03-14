@@ -12,7 +12,7 @@ abstract class DuskTestCase extends BaseTestCase
 
     protected function baseUrl()
     {
-        return 'http://nginx.local';
+        return 'http://laravel.local';
     }
 
     /**

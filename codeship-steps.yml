@@ -1,8 +1,8 @@
 - type: serial
   name: deployment
   steps:
-    - name: nginx 
-      service: nginx 
+    - name: laravel
+      service: laravel
       command: echo up 
     - name: selenium 
       service: selenium 
