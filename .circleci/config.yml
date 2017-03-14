@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: buildpack-deps:trusty
+    working_directory: /tmp
+    steps:
+      - setup_docker_engine
+      - run: |
+        docker-compose -f docker-compose.yml up -d
+      - run: |
+        docker-compose -f docker-compose.yml run laravel php artisan dusk
