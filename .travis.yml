@@ -19,7 +19,7 @@ before_install:
 
 script:
     - docker-compose version
-    - docker-compose -f docker-compose.yml run laravel php artisan dusk
+    - docker-compose -f docker-compose.yml run laravel ./run_test.sh
     - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p $(dirname ${DOCKER_CACHE_FILE}) ; docker save $(docker history -q ${DOCKER_IMAGE_NAME} | grep -v '<missing>') | gzip > ${DOCKER_CACHE_FILE}; fi
 notifications:
     slack:
