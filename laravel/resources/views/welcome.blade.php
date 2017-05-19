@@ -11,7 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!-- Styles -->
         <link href="/css/app.css" rel="stylesheet" type="text/css">
-        <script type="application/javascript" src="/js/app.js"></script>
+        <script>
+            window.Laravel = <?php echo json_encode([
+                        'csrfToken' => csrf_token()
+                    ]); ?>;
+        </script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -40,5 +44,9 @@
                 </div>
             </div>
         </div>
+        <div id="app">
+            <example message="foo"></example>
+        </div>
+        <script type="application/javascript" src="/js/app.js"></script>
     </body>
 </html>
