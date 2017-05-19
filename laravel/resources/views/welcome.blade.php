@@ -10,7 +10,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!-- Styles -->
-        <link href="/css/sample.css" rel="stylesheet" type="text/css">
+        <link href="/css/app.css" rel="stylesheet" type="text/css">
+        <script type="application/javascript" src="/js/app.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
