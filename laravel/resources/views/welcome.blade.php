@@ -10,7 +10,12 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <!-- Styles -->
-        <link href="/css/sample.css" rel="stylesheet" type="text/css">
+        <link href="/css/app.css" rel="stylesheet" type="text/css">
+        <script>
+            window.Laravel = <?php echo json_encode([
+                        'csrfToken' => csrf_token()
+                    ]); ?>;
+        </script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -27,7 +32,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Dusk
+                    Laravel Dusk ダスク
                 </div>
 
                 <div class="links">
@@ -39,5 +44,9 @@
                 </div>
             </div>
         </div>
+        <div id="app">
+            <example message="foo"></example>
+        </div>
+        <script type="application/javascript" src="/js/app.js"></script>
     </body>
 </html>

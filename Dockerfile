@@ -10,6 +10,7 @@ RUN apk upgrade --update \
        git \
        zlib-dev \
        nginx \
+       nodejs \
     && docker-php-ext-install  mcrypt \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  zip \
