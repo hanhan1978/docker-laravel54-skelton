@@ -17,6 +17,7 @@ html, body {
   margin: 0;
 }
 
+
 .full-height {
   height: 80vh;
 }
@@ -53,6 +54,10 @@ html, body {
   letter-spacing: .1rem;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.links > a:hover {
+  opacity: 0.5;
 }
 
 .m-b-md {

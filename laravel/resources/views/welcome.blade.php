@@ -32,7 +32,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Dusk
+                    Laravel Dusk ダスク
                 </div>
 
                 <div class="links">
