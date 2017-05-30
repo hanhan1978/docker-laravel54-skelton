@@ -12,7 +12,6 @@ env:
         - DOCKER_IMAGE_NAME=dockerlaravel54skelton_laravel
 
 before_install:
-    - ls -l ${DOCKER_CACHE_FILE}
     - if [ -f ${DOCKER_CACHE_FILE} ]; then gunzip -c ${DOCKER_CACHE_FILE} | docker load; fi
     - docker version
     - docker-compose -f docker-compose.yml up -d
