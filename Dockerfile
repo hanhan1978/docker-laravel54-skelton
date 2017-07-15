@@ -1,5 +1,5 @@
 
-FROM php:7.1.2-fpm-alpine
+FROM php:7.1.7-fpm-alpine
 
 MAINTAINER hanhan1978 <ryo.tomidokoro@gmail.com>
 
