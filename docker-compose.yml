@@ -18,7 +18,9 @@ services:
     volumes:
       - ./var/mysql:/var/lib/mysql
     networks:
-      - app
+      app:
+        aliases:
+          - mysql.local
   selenium:
     image: hanhan1978/selenium-standalone-chrome-ja:latest
     networks:
