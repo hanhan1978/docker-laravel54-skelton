@@ -13,7 +13,13 @@ class TestController extends Controller
 {
     public function show()
     {
-        //$tests = \App\Test::all();
+        return 'This is test';
+    }
+
+    public function show_mysql_10000()
+    {
+        $tests = \App\Test::all();
+        echo (count($tests));
         return 'This is test';
     }
 
