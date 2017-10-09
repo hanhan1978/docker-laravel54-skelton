@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/test', 'TestController@show');
 Route::get('/test_mysql_10000', 'TestController@show_mysql_10000');
+Route::get('/test_super_cache_10000', 'TestController@show_super_cache_10000');

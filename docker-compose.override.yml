@@ -2,4 +2,4 @@ version: '2'
 services:
   laravel:
     volumes:
-      - ./laravel:/var/www/laravel
+      - ./laravel:/var/www/laravel:cached
