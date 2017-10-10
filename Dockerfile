@@ -13,6 +13,7 @@ RUN apk upgrade --update \
        nodejs \
     && docker-php-ext-install  mcrypt \
     && docker-php-ext-install  pdo_mysql \
+    && docker-php-ext-install opcache \
     && docker-php-ext-install  zip \
     && mkdir /run/nginx
 

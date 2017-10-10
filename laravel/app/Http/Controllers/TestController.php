@@ -49,7 +49,7 @@ class TestController extends Controller
     }
 
     private function cache_get($key) {
-        @include "/tmp/$key";
+        @require_once "/tmp/$key";
         return isset($val) ? $val : false;
     }
 }
